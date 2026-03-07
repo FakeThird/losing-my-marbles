@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://nessbvc8bure"]
+[gd_scene load_steps=11 format=3 uid="uid://nessbvc8bure"]
 
 [ext_resource type="Script" uid="uid://0uwuvq35gt17" path="res://player_marble.gd" id="1_mh4n1"]
 [ext_resource type="Texture2D" uid="uid://ckqnl6ugua241" path="res://SMS Pool Asset Pack FREE/white/0.png" id="2_1royl"]
@@ -41,13 +41,13 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mh4n1"]
 
+[sub_resource type="Gradient" id="Gradient_5vpmh"]
+offsets = PackedFloat32Array(0, 0.023529412, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.11372549, 0.11372549, 1, 1, 1, 1, 1)
+
 [node name="PlayerBall" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_mh4n1")
-max_pull = null
-friction = null
-power_mult = null
-speed = null
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -65,4 +65,10 @@ stream = ExtResource("7_5vpmh")
 volume_db = -10.0
 pitch_scale = 1.5
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="AimLine" type="Line2D" parent="."]
+z_index = 1
+width = 2.0
+
+[node name="StickLine" type="Line2D" parent="."]
+width = 4.0
+gradient = SubResource("Gradient_5vpmh")

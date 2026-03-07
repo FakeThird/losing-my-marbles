@@ -1,32 +1,64 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-@export var friction: float = 0.98
-var marble_color: String = "red"  # use a regular var, not @export
+signal ball_pushed
+signal ball_stopped
+
+@export var is_player: bool = false
+@export var speed: float = 350.0
+@export var stats_label: Label
+
+var marble_color: String = "white"
+var launched: bool = false
+var screensize: Vector2 = DisplayServer.window_get_size()
 
 func _ready():
-	call_deferred("setup_animation")
+	body_entered.connect(_on_body_entered)
+	if is_player:
+		reset_position()
+	else:
+		call_deferred("setup_animation")
 
 func setup_animation():
 	$AnimatedSprite2D.animation = marble_color + "_idle"
 	$AnimatedSprite2D.play()
 
-func _physics_process(delta):
-	var collision = move_and_collide(velocity * delta)
-	
-	if collision:
-		var collider = collision.get_collider()
-		if collider is CharacterBody2D and "velocity" in collider:
-			collider.velocity = -collision.get_normal() * (velocity.length() * 0.9)
-		velocity = velocity.bounce(collision.get_normal()) * 0.8
-		$Bounce.volume_db = clamp(linear_to_db(velocity.length() / 500.0), -20.0, 0.0)
-		$Bounce.play()
+func reset_position() -> void:
+	position.x = screensize.x / 2
+	position.y = 450
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+	launched = false
+	$AimLine.visible = true
+	ball_stopped.emit()
 
-	velocity *= friction
+func launch(power: float, aim_angle: float):
+	var direction = Vector2(cos(aim_angle), sin(aim_angle))
+	apply_central_impulse(direction * power * speed)
+	launched = true
+	$AimLine.visible = false
+	ball_pushed.emit()
 
-	if velocity.length() > 5:
+func update_aim_line(power: float, aim_angle: float):
+	if not is_player:
+		return
+	$AimLine.clear_points()
+	$AimLine.add_point(Vector2.ZERO)
+	var line_length = lerp(50.0, 300.0, power)
+	$AimLine.add_point(Vector2(cos(aim_angle), sin(aim_angle)) * line_length)
+
+func _integrate_forces(state: PhysicsDirectBodyState2D):
+	if stats_label and is_player:
+		stats_label.text = "Velocity: %.1f\nMass: %.1f" % [state.linear_velocity.length(), mass]
+	if state.linear_velocity.length() > 5:
 		$AnimatedSprite2D.animation = marble_color + "_pushed"
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.animation = marble_color + "_idle"
 		$AnimatedSprite2D.play()
-		velocity = Vector2.ZERO
+		if is_player and launched:
+			reset_position()
+
+func _on_body_entered(body):
+	var spd = linear_velocity.length()
+	$Bounce.volume_db = clamp(linear_to_db(spd / speed), -20.0, 0.0)
+	$Bounce.play()

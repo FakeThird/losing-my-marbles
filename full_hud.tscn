@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://gf4bbc4cpfyd"]
+
+[ext_resource type="AudioStream" uid="uid://2pslrt2jc32i" path="res://assets/sounds/multiplier.wav" id="1_37p78"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2snw"]
+font_size = 32
+
+[node name="FullHUD" type="CanvasLayer"]
+
+[node name="RotateLeft" type="Button" parent="."]
+offset_left = 51.0
+offset_top = 163.0
+offset_right = 145.0
+offset_bottom = 194.0
+text = "Rotate Left"
+
+[node name="RotateRight" type="Button" parent="."]
+offset_left = 49.0
+offset_top = 199.0
+offset_right = 153.0
+offset_bottom = 230.0
+text = "Rotate Right"
+
+[node name="SpawnMarbles" type="Button" parent="."]
+offset_left = 39.0
+offset_top = 271.0
+offset_right = 165.0
+offset_bottom = 302.0
+text = "Spawn Marbles"
+
+[node name="Multiplier" type="Label" parent="."]
+offset_left = 574.0
+offset_top = 21.0
+offset_right = 687.0
+offset_bottom = 109.0
+label_settings = SubResource("LabelSettings_n2snw")
+
+[node name="Multiplier" type="AudioStreamPlayer" parent="Multiplier"]
+stream = ExtResource("1_37p78")

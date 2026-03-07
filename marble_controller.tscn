@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ickyjdy00pg"]
+
+[ext_resource type="Script" uid="uid://dx1gfu0lxxj56" path="res://marble_controller.gd" id="1_psx3c"]
+
+[node name="MarbleController" type="Node"]
+script = ExtResource("1_psx3c")

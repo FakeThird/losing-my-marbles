@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ciaqxx5sxa5wo"]
+[gd_scene load_steps=28 format=3 uid="uid://ciaqxx5sxa5wo"]
 
 [ext_resource type="Script" uid="uid://cigpojdu7iy67" path="res://marble.gd" id="1_x8fbi"]
 [ext_resource type="Shader" uid="uid://bxv3cjjlincxw" path="res://marble.gdshader" id="2_jifei"]
@@ -13,11 +13,20 @@
 [ext_resource type="Texture2D" uid="uid://dv8jkw4ekdhv4" path="res://SMS Pool Asset Pack FREE/3ball/3.png" id="10_l84g8"]
 [ext_resource type="Texture2D" uid="uid://cepsgdkuqu006" path="res://SMS Pool Asset Pack FREE/3ball/4.png" id="11_qfeen"]
 [ext_resource type="Texture2D" uid="uid://dfqpi1dxmk5xq" path="res://SMS Pool Asset Pack FREE/1ball/0.png" id="12_nlio4"]
+[ext_resource type="Texture2D" uid="uid://ckqnl6ugua241" path="res://SMS Pool Asset Pack FREE/white/0.png" id="13_g1qw6"]
 [ext_resource type="Texture2D" uid="uid://dk7l2y6e4vws1" path="res://SMS Pool Asset Pack FREE/1ball/1.png" id="13_tjwx2"]
 [ext_resource type="Texture2D" uid="uid://dxrc3flujnagl" path="res://SMS Pool Asset Pack FREE/1ball/2.png" id="14_5t8y6"]
+[ext_resource type="Texture2D" uid="uid://qcsai0i0ju8f" path="res://SMS Pool Asset Pack FREE/white/1.png" id="14_l84g8"]
 [ext_resource type="Texture2D" uid="uid://b2w5amxiaktfa" path="res://SMS Pool Asset Pack FREE/1ball/3.png" id="15_l5rkl"]
+[ext_resource type="Texture2D" uid="uid://cgcyi52tdq8ef" path="res://SMS Pool Asset Pack FREE/white/2.png" id="15_qfeen"]
 [ext_resource type="Texture2D" uid="uid://bgd0ja6ju1v50" path="res://SMS Pool Asset Pack FREE/1ball/4.png" id="16_dk4ft"]
+[ext_resource type="Texture2D" uid="uid://blpbtsi71owkv" path="res://SMS Pool Asset Pack FREE/white/3.png" id="16_nlio4"]
+[ext_resource type="Texture2D" uid="uid://iaxj6oc6n7ak" path="res://SMS Pool Asset Pack FREE/white/4.png" id="17_tjwx2"]
 [ext_resource type="AudioStream" uid="uid://csn7q0ii2o2lo" path="res://assets/sounds/marble.wav" id="18_2egik"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2egik"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2egik"]
 shader = ExtResource("2_jifei")
@@ -84,6 +93,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("13_g1qw6")
+}],
+"loop": true,
+"name": &"white_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_g1qw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l84g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qfeen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nlio4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tjwx2")
+}],
+"loop": true,
+"name": &"white_pushed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_nlio4")
 }],
 "loop": true,
@@ -113,15 +150,21 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8fbi"]
 
-[node name="Marble" type="CharacterBody2D"]
+[node name="Marble" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_2egik")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 4
+linear_damp = 0.3
+angular_damp = 1.0
 script = ExtResource("1_x8fbi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2egik")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_x8fbi")
-animation = &"yellow_idle"
-autoplay = "red_idle"
+animation = &"white_pushed"
+autoplay = "white_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x8fbi")
@@ -130,3 +173,7 @@ shape = SubResource("CircleShape2D_x8fbi")
 stream = ExtResource("18_2egik")
 volume_db = -10.0
 pitch_scale = 1.5
+
+[node name="AimLine" type="Line2D" parent="."]
+z_index = 1
+width = 2.0
