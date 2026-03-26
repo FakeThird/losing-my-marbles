@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://uxmhcimkbo2j"]
+
+[ext_resource type="Script" uid="uid://b5ehlgefg7a7s" path="res://scenes/main_menu/main_menu.gd" id="1_isws5"]
+
+[node name="MainMenu" type="Control" unique_id=1707821884]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_isws5")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=210536197]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1791502485]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1094318442]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=105126273]
+layout_mode = 2
+text = "Losing My Marbles!"
+
+[node name="IPInput" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=587414331]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "127.0.0.1"
+
+[node name="HostButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1025898595]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Host Game"
+
+[node name="JoinButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1432276324]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Join Game"
+
+[node name="LobbyPanel" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=665878528]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LobbyPanel" unique_id=50643078]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/LobbyPanel/VBoxContainer" unique_id=1416344997]
+layout_mode = 2
+text = "Players in Lobby:"
+
+[node name="PlayerList" type="ItemList" parent="MarginContainer/HBoxContainer/LobbyPanel/VBoxContainer" unique_id=517867138]
+unique_name_in_owner = true
+layout_mode = 2
+auto_width = true
+auto_height = true
+
+[node name="StartMatchButton" type="Button" parent="MarginContainer/HBoxContainer/LobbyPanel/VBoxContainer" unique_id=294520164]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Start Match"

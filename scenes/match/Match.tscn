@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bab8f8uysmr41"]
+
+[ext_resource type="Script" uid="uid://bckan25ba6dhk" path="res://scenes/match/match_manager.gd" id="1_whlw6"]
+
+[node name="Match" type="Node2D" unique_id=1949434338]
+script = ExtResource("1_whlw6")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1268579650]
+
+[node name="TopUI" type="MarginContainer" parent="HUD" unique_id=459713189]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopUI" unique_id=1414140997]
+layout_mode = 2
+alignment = 1
+
+[node name="TurnLabel" type="Label" parent="HUD/TopUI/VBoxContainer" unique_id=442606850]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Waiting for server..."
+
+[node name="PhaseLabel" type="Label" parent="HUD/TopUI/VBoxContainer" unique_id=884868850]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Phase: None"
+
+[node name="BottomUI" type="MarginContainer" parent="HUD" unique_id=978633814]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextPhaseButton" type="Button" parent="HUD/BottomUI" unique_id=98051663]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next Phase"
