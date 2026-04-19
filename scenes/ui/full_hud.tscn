@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gf4bbc4cpfyd"]
 
-[ext_resource type="AudioStream" uid="uid://2pslrt2jc32i" path="res://assets/sounds/multiplier.wav" id="1_37p78"]
+[ext_resource type="AudioStream" uid="uid://2pslrt2jc32i" path="res://assets/audio/multiplier.wav" id="1_37p78"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n2snw"]
 font_size = 32
