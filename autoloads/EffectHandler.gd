@@ -1,3 +1,4 @@
+## EffectHandler.gd
 extends Node
 
 # Signal to tell the UI or objects to play an animation/effect

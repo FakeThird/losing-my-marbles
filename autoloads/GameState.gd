@@ -1,3 +1,6 @@
+## GameState.gd
+## Server-authoritative match state. Only the server writes to this autoload.
+## Clients read replicated values via MultiplayerSynchronizer — never directly.
 extends Node
 
 signal marble_launched

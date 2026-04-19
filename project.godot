@@ -21,6 +21,8 @@ config/icon="res://icon.svg"
 NetworkManager="*uid://caqg3kfalt5sp"
 EffectHandler="*uid://c0q8hsimcqes0"
 GameState="*uid://bfkel48webjj8"
+AudioManager="*uid://lq4nsoi1jird"
+SignalBus="*uid://dwy455kpoyky3"
 
 [display]
 
