@@ -55,4 +55,4 @@ func setup(card_resource: CardData) -> void:
 	%TypeLabel.text = CardData.Type.keys()[data.type]
 	%DescriptionLabel.text = data.description
 	if has_node("%CostLabel"):
-		get_node("%CostLabel").text = "Cost: " + str(data.mana_cost)
+		get_node("%CostLabel").text = str(data.mana_cost)

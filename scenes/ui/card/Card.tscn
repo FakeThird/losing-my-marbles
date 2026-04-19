@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://bkxuaiju1rbac"]
 
 [ext_resource type="Script" uid="uid://clunsonw3iqiw" path="res://scenes/ui/card/card.gd" id="1_o2q3h"]
+[ext_resource type="Texture2D" uid="uid://drtw3l2hpf2k4" path="res://assets/placeholder_sprites/card.png" id="2_wiiey"]
 
 [node name="Card" type="PanelContainer" unique_id=2130281654]
 custom_minimum_size = Vector2(100, 140)
 script = ExtResource("1_o2q3h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2068755862]
+layout_mode = 2
+texture = ExtResource("2_wiiey")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1149185466]
 layout_mode = 2
@@ -16,27 +21,32 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=489488360]
 layout_mode = 2
 
+[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=809483650]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+text = "0"
+
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1026390028]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
 text = "Card Name"
 horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=404856912]
-layout_mode = 2
 
 [node name="TypeLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1171558508]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
 text = "Marble"
-
-[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=809483650]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Cost: 0"
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1829881372]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
 theme_override_font_sizes/font_size = 8
 text = "Null Card"
