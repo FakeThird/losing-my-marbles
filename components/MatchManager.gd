@@ -22,6 +22,10 @@ const CARD_SCENE: PackedScene = preload("res://scenes/ui/card/card.tscn")
 
 @export var card_database: Array[CardData]
 
+# Test Functionalities for toggling between scenes:
+@onready var switch_to_terrain_button: Button = %SwitchToTerrainButton
+var terrain_node: Node = null
+
 func _ready() -> void:
 	# Hide the button by default
 	next_phase_button.hide()
@@ -30,6 +34,10 @@ func _ready() -> void:
 	# Listen for when the player drops a card
 	play_area.card_dropped_on_board.connect(_on_card_dropped)
 	
+	# Test Functionalities for toggling between scenes:
+	switch_to_terrain_button.hide()
+	switch_to_terrain_button.pressed.connect(_on_switch_to_terrain_pressed)
+
 	# Determine if we are the server or the client
 	if multiplayer.is_server():
 		print("Server: Match node ready locally.")
@@ -40,6 +48,8 @@ func _ready() -> void:
 		# THE FIX: Wait exactly 1 frame so the network path is fully registered
 		await get_tree().process_frame 
 		_notify_server_loaded.rpc_id(1)
+		
+
 
 func _initialize_match() -> void:
 	print("Server: All players loaded! Initializing Match...")
@@ -119,14 +129,26 @@ func _update_ui() -> void:
 		var my_mana = player_stats[my_id]["mana"]
 		var my_health = player_stats[my_id]["health"]
 		mana_label.text = "HP: %d | Mana: %d" % [my_health, my_mana]
+		
+	# Test Functionalities for toggling between scenes:
+	var is_my_turn: bool = (multiplayer.get_unique_id() == active_player_id)
 	
 	# 5. Safe button toggle
-	var is_my_turn: bool = (my_id == active_player_id)
+	#var is_my_turn: bool = (my_id == active_player_id)
 	if is_my_turn and current_state != MatchState.SIMULATING:
 		next_phase_button.show()
 	else:
 		next_phase_button.hide()
-	
+		
+	# Test Functionalities for toggling between scenes:
+	if is_my_turn and current_state == MatchState.AIM:
+		switch_to_terrain_button.show()
+	else:
+		switch_to_terrain_button.hide()
+		
+	if current_state == MatchState.SIMULATING and terrain_node != null:
+		_return_to_match()
+		
 	# --- NEW: Draw Dummy Cards on DRAW Phase ---
 	if current_state == MatchState.DRAW and is_my_turn:
 		# Clear existing cards
@@ -139,7 +161,7 @@ func _update_ui() -> void:
 			var card_node = CARD_SCENE.instantiate()
 			card_node.setup(random_card_data) # Use the setup function
 			hand_container.add_child(card_node)
-
+			
 # --- CLIENT REQUESTS ---
 func _on_next_phase_pressed() -> void:
 	# The client clicks the button, sending a request ONLY to the Server (ID 1)
@@ -252,3 +274,25 @@ func _card_successfully_played(card_id: int) -> void:
 func _sync_stats(updated_stats: Dictionary) -> void:
 	player_stats = updated_stats
 	_update_ui()
+	
+# Test Functionalities for toggling between scenes:
+func _on_switch_to_terrain_pressed() -> void:
+	$Node2D.visible = false
+	$HUD.visible = false
+	terrain_node = load("res://scenes/terrain/terrain.tscn").instantiate()
+	terrain_node.name = "Terrain_" + str(multiplayer.get_unique_id())
+	terrain_node.match_node = self
+	get_tree().root.add_child(terrain_node)
+	await get_tree().process_frame
+	terrain_node.set_visible_terrain(true)
+
+func _return_to_match() -> void:
+	if terrain_node != null:
+		terrain_node.queue_free()
+		terrain_node = null
+	$HUD.visible = true
+	$Node2D.visible = true
+
+func _set_terrain_visible(show: bool) -> void:
+	if terrain_node != null:
+		terrain_node.set_visible_terrain(show)

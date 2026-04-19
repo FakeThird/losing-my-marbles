@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Marbles"
+config/name="Losing My Marbles!"
 config/version="0.2.0"
 run/main_scene="uid://ifgs44n5k7xd"
 config/features=PackedStringArray("4.6", "GL Compatibility")

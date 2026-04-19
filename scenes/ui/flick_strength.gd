@@ -6,7 +6,7 @@ var min_pull_threshold: float = 0.05
 var idle_y: float = 0.0
 var wiggling: bool = false
 
-@onready var controller: Node = get_node("/root/Terrain/MarbleController")
+@onready var controller: Node = get_node("../../MarbleController")
 
 func _ready():
 	$Container/Lever.gui_input.connect(_on_lever_input)

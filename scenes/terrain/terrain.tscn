@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dios7v2pex78p" path="res://scenes/terrain/terrain.gd" id="1_3shck"]
 [ext_resource type="Texture2D" uid="uid://8og67upukxv4" path="res://assets/placeholder_sprites/TileCraftGroundSetVersion2.png" id="2_avahw"]
-[ext_resource type="PackedScene" uid="uid://ciaqxx5sxa5wo" path="res://scenes/entities/marble.tscn" id="2_h2lqh"]
+[ext_resource type="PackedScene" uid="uid://ciaqxx5sxa5wo" path="res://scenes/entities/marble/marble.tscn" id="2_h2lqh"]
 [ext_resource type="Texture2D" uid="uid://ckqnl6ugua241" path="res://assets/placeholder_sprites/marbles/white/0.png" id="2_xo2vs"]
 [ext_resource type="PackedScene" uid="uid://c75et1a60xk56" path="res://scenes/ui/flick_hud.tscn" id="3_h2lqh"]
 [ext_resource type="Script" uid="uid://dx1gfu0lxxj56" path="res://components/MarbleController.gd" id="3_igvj6"]

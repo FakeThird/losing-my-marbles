@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bab8f8uysmr41"]
 
-[ext_resource type="Script" uid="uid://bckan25ba6dhk" path="res://scenes/match/match_manager.gd" id="1_whlw6"]
+[ext_resource type="Script" uid="uid://bckan25ba6dhk" path="res://components/MatchManager.gd" id="1_whlw6"]
 [ext_resource type="Script" uid="uid://dfxsw6kfa227c" path="res://resources/cards/card_data.gd" id="2_3irga"]
 [ext_resource type="Script" uid="uid://bw8hd6bcrkdjn" path="res://scenes/match/play_area.gd" id="2_i6uep"]
 [ext_resource type="Resource" uid="uid://cb6f7snpttemr" path="res://resources/cards/BigMarble.tres" id="3_5l6y0"]
@@ -76,6 +76,11 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "Next Phase"
+
+[node name="SwitchToTerrainButton" type="Button" parent="HUD/BottomUI/VBoxContainer" unique_id=140097109]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Aim on Terrain"
 
 [node name="Node2D" type="Node2D" parent="." unique_id=365536205]
 
