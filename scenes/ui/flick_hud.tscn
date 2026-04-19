@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c75et1a60xk56"]
+
+[ext_resource type="Script" uid="uid://dkbxtakgtmgxe" path="res://scenes/ui/flick_strength.gd" id="1_1bkei"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bkei"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="FlickHUD" type="CanvasLayer"]
+
+[node name="FlickStrength" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1bkei")
+
+[node name="Container" type="Panel" parent="FlickStrength"]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 118.0
+offset_right = 641.0
+offset_bottom = 158.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1bkei")
+
+[node name="Track" type="ColorRect" parent="FlickStrength/Container"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 40.0
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+
+[node name="Lever" type="ColorRect" parent="FlickStrength/Container"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 40.0

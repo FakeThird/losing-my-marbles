@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://ifgs44n5k7xd"]
 
-[ext_resource type="Script" uid="uid://1qxwj801eofv" path="res://main.gd" id="1_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://uxmhcimkbo2j" path="res://scenes/main_menu/MainMenu.tscn" id="2_r0du0"]
+[ext_resource type="Script" uid="uid://1qxwj801eofv" path="res://scenes/main_menu/main.gd" id="1_5o5oo"]
+[ext_resource type="PackedScene" uid="uid://uxmhcimkbo2j" path="res://scenes/main_menu/MainMenu.tscn" id="2_n6eec"]
 
 [node name="Main" type="Node" unique_id=1420677804]
-script = ExtResource("1_uu6xs")
+script = ExtResource("1_5o5oo")
 
-[node name="MainMenu" parent="." unique_id=1707821884 instance=ExtResource("2_r0du0")]
+[node name="MainMenu" parent="." unique_id=1707821884 instance=ExtResource("2_n6eec")]
 
 [node name="LevelContainer" type="Node" parent="." unique_id=324069148]
 

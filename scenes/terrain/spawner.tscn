@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://vyidihqt3miq"]
+
+[ext_resource type="Script" uid="uid://c6sipmp8c51g8" path="res://scenes/terrain/spawner.gd" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://ciaqxx5sxa5wo" path="res://scenes/entities/marble.tscn" id="2_ttk4a"]
+
+[node name="Spawner" type="Marker2D"]
+script = ExtResource("1_yp5lu")
+marble_scene = ExtResource("2_ttk4a")

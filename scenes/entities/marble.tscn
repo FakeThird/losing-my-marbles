@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://ciaqxx5sxa5wo"]
+
+[ext_resource type="Script" uid="uid://cigpojdu7iy67" path="res://scenes/entities/marble.gd" id="1_x8fbi"]
+[ext_resource type="Shader" uid="uid://bxv3cjjlincxw" path="res://scripts/marble.gdshader" id="2_jifei"]
+[ext_resource type="Texture2D" uid="uid://c248sxuppxn66" path="res://assets/SMS Pool Asset Pack FREE/2ball/0.png" id="2_rx7ot"]
+[ext_resource type="Texture2D" uid="uid://b6n726556wu8p" path="res://assets/SMS Pool Asset Pack FREE/2ball/1.png" id="3_jifei"]
+[ext_resource type="Texture2D" uid="uid://biaxq7obk70j5" path="res://assets/SMS Pool Asset Pack FREE/2ball/2.png" id="4_2egik"]
+[ext_resource type="Texture2D" uid="uid://ca4hx7l2fodp6" path="res://assets/SMS Pool Asset Pack FREE/2ball/3.png" id="5_wbh0y"]
+[ext_resource type="Texture2D" uid="uid://dmqovdhey0eb4" path="res://assets/SMS Pool Asset Pack FREE/2ball/4.png" id="6_vt3td"]
+[ext_resource type="Texture2D" uid="uid://etfhv3hr52ur" path="res://assets/SMS Pool Asset Pack FREE/3ball/0.png" id="7_14rbl"]
+[ext_resource type="Texture2D" uid="uid://dattm8clglj0w" path="res://assets/SMS Pool Asset Pack FREE/3ball/1.png" id="8_pst5u"]
+[ext_resource type="Texture2D" uid="uid://uh123nls1vgm" path="res://assets/SMS Pool Asset Pack FREE/3ball/2.png" id="9_g1qw6"]
+[ext_resource type="Texture2D" uid="uid://dv8jkw4ekdhv4" path="res://assets/SMS Pool Asset Pack FREE/3ball/3.png" id="10_l84g8"]
+[ext_resource type="Texture2D" uid="uid://cepsgdkuqu006" path="res://assets/SMS Pool Asset Pack FREE/3ball/4.png" id="11_qfeen"]
+[ext_resource type="Texture2D" uid="uid://dfqpi1dxmk5xq" path="res://assets/SMS Pool Asset Pack FREE/1ball/0.png" id="12_nlio4"]
+[ext_resource type="Texture2D" uid="uid://ckqnl6ugua241" path="res://assets/SMS Pool Asset Pack FREE/white/0.png" id="13_g1qw6"]
+[ext_resource type="Texture2D" uid="uid://dk7l2y6e4vws1" path="res://assets/SMS Pool Asset Pack FREE/1ball/1.png" id="13_tjwx2"]
+[ext_resource type="Texture2D" uid="uid://dxrc3flujnagl" path="res://assets/SMS Pool Asset Pack FREE/1ball/2.png" id="14_5t8y6"]
+[ext_resource type="Texture2D" uid="uid://qcsai0i0ju8f" path="res://assets/SMS Pool Asset Pack FREE/white/1.png" id="14_l84g8"]
+[ext_resource type="Texture2D" uid="uid://b2w5amxiaktfa" path="res://assets/SMS Pool Asset Pack FREE/1ball/3.png" id="15_l5rkl"]
+[ext_resource type="Texture2D" uid="uid://cgcyi52tdq8ef" path="res://assets/SMS Pool Asset Pack FREE/white/2.png" id="15_qfeen"]
+[ext_resource type="Texture2D" uid="uid://bgd0ja6ju1v50" path="res://assets/SMS Pool Asset Pack FREE/1ball/4.png" id="16_dk4ft"]
+[ext_resource type="Texture2D" uid="uid://blpbtsi71owkv" path="res://assets/SMS Pool Asset Pack FREE/white/3.png" id="16_nlio4"]
+[ext_resource type="Texture2D" uid="uid://iaxj6oc6n7ak" path="res://assets/SMS Pool Asset Pack FREE/white/4.png" id="17_tjwx2"]
+[ext_resource type="AudioStream" uid="uid://csn7q0ii2o2lo" path="res://assets/sounds/marble.wav" id="18_2egik"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2egik"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2egik"]
+shader = ExtResource("2_jifei")
+shader_parameter/chroma_key = Color(0.733, 0.871, 0.984, 1)
+shader_parameter/precision = 0.05
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8fbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rx7ot")
+}],
+"loop": true,
+"name": &"blue_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rx7ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jifei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2egik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wbh0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vt3td")
+}],
+"loop": true,
+"name": &"blue_pushed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_14rbl")
+}],
+"loop": true,
+"name": &"red_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_14rbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pst5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g1qw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l84g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qfeen")
+}],
+"loop": true,
+"name": &"red_pushed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_g1qw6")
+}],
+"loop": true,
+"name": &"white_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_g1qw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l84g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qfeen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nlio4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tjwx2")
+}],
+"loop": true,
+"name": &"white_pushed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_nlio4")
+}],
+"loop": true,
+"name": &"yellow_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_nlio4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tjwx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5t8y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_l5rkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dk4ft")
+}],
+"loop": true,
+"name": &"yellow_pushed",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8fbi"]
+
+[node name="Marble" type="RigidBody2D" unique_id=2065152993]
+physics_material_override = SubResource("PhysicsMaterial_2egik")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 4
+linear_damp = 0.3
+angular_damp = 1.0
+script = ExtResource("1_x8fbi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1995512018]
+material = SubResource("ShaderMaterial_2egik")
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_x8fbi")
+animation = &"white_pushed"
+autoplay = "white_idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1211570979]
+shape = SubResource("CircleShape2D_x8fbi")
+
+[node name="Bounce" type="AudioStreamPlayer" parent="." unique_id=655017086]
+stream = ExtResource("18_2egik")
+volume_db = -10.0
+pitch_scale = 1.5

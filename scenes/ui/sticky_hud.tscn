@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cvsrxcvylb063"]
+
+[node name="StickyHUD" type="CanvasLayer"]
+
+[node name="SwitchCamera" type="Button" parent="."]
+offset_left = 45.0
+offset_top = 400.0
+offset_right = 168.0
+offset_bottom = 431.0
+text = "Switch Camera"
+
+[node name="Data" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
