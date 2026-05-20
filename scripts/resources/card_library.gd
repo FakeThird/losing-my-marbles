@@ -25,16 +25,24 @@ func load_characters() -> void:
 func _load_tres_files(dir_path: String) -> Array[Resource]:
 	var result: Array[Resource] = []
 	var dir := DirAccess.open(dir_path)
+	
 	if dir == null:
 		push_error("CardLibrary: Cannot open directory: ", dir_path)
 		return result
-	dir.list_dir_begin()
-	var file_name := dir.get_next()
-	while file_name != "":
-		if file_name.ends_with(".tres"):
-			var resource := load(dir_path + file_name)
+		
+	# Modern GDScript 2.0 avoids while loops in favor of get_files()
+	for file_name: String in dir.get_files():
+		# CRITICAL EXPORT FIX: Strip the .remap extension if it exists
+		var clean_file_name: String = file_name.trim_suffix(".remap")
+		
+		# Allow both text (.tres) and binary (.res) resource files
+		if clean_file_name.ends_with(".tres") or clean_file_name.ends_with(".res"):
+			var resource_path: String = dir_path + clean_file_name
+			var resource: Resource = load(resource_path)
+			
 			if resource:
 				result.append(resource)
-		file_name = dir.get_next()
-	dir.list_dir_end()
+			else:
+				push_error("CardLibrary: Failed to load resource at ", resource_path)
+				
 	return result
