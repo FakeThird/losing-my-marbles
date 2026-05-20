@@ -25,10 +25,10 @@ Resource
 │   └── weight: float            (1.0 default)
 │
 └── EffectData             (scripts/resources/effect_data.gd)
-    ├── effect_id: String
-    ├── value: float
-    ├── target: Enums.TargetEnum
-    └── trigger: Enums.TriggerEnum
+	├── effect_id: String
+	├── value: float
+	├── target: Enums.TargetEnum
+	└── trigger: Enums.TriggerEnum
 ```
 
 All enums live in `autoloads/enums.gd` (autoloaded as `Enums`).

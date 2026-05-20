@@ -1,21 +1,18 @@
-[gd_resource type="Resource" script_class="MarbleData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="MarbleData" format=3 uid="uid://cmvpyravavoxj"]
 
-[ext_resource type="Script" path="res://scripts/resources/marble_data.gd" id="1_marble"]
-[ext_resource type="Script" path="res://scripts/resources/physics_object_data.gd" id="2_phys"]
+[ext_resource type="Script" uid="uid://drqtpejtd1n38" path="res://scripts/resources/effect_data.gd" id="1_1fchb"]
+[ext_resource type="Script" uid="uid://wwb44rr7uh6p" path="res://scripts/resources/marble_data.gd" id="1_marble"]
+[ext_resource type="Script" uid="uid://c2yafg2s6fr5s" path="res://scripts/resources/physics_object_data.gd" id="2_phys"]
 
 [sub_resource type="Resource" id="phys_1"]
 script = ExtResource("2_phys")
 friction = 1.8
-stickiness = 0.0
-gravity_modifier = 1.0
 elasticity = 0.05
 weight = 1.2
 
 [resource]
 script = ExtResource("1_marble")
+physics = SubResource("phys_1")
 card_name = "Gumball"
 type = 0
-mana_cost = 0
-effects = []
 description = "A sticky chewed gumball. High friction stops it dead on impact."
-physics = SubResource("phys_1")

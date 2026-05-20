@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k7t2dildxurn"
-path="res://.godot/imported/cat_s_eye.png-32459b936863501b20bf3500cf10f1bf.ctex"
+uid="uid://bdtl3gfx7sedr"
+path="res://.godot/imported/hello_bunny.png-a777a71af2f95c2e195a4193f9f4ee45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/marbles/cat_s_eye.png"
-dest_files=["res://.godot/imported/cat_s_eye.png-32459b936863501b20bf3500cf10f1bf.ctex"]
+source_file="res://assets/sprites/marbles/hello_bunny.png"
+dest_files=["res://.godot/imported/hello_bunny.png-a777a71af2f95c2e195a4193f9f4ee45.ctex"]
 
 [params]
 

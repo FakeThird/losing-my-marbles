@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byuw6hqtn1t1g"
-path="res://.godot/imported/hello_kitty_marble.png-fc249aa8c6131ffe6c51f8aefa102790.ctex"
+uid="uid://dg62lxtead8iy"
+path="res://.godot/imported/hello_bunny.png-f262d657273332303857d0279e166578.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cards/marbles/hello_kitty_marble.png"
-dest_files=["res://.godot/imported/hello_kitty_marble.png-fc249aa8c6131ffe6c51f8aefa102790.ctex"]
+source_file="res://assets/sprites/cards/marbles/hello_bunny.png"
+dest_files=["res://.godot/imported/hello_bunny.png-f262d657273332303857d0279e166578.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgtg2aknwb6e8"
-path="res://.godot/imported/marble_siphon.png-960c154f65d1cd4b9369cc39458c3d4b.ctex"
+uid="uid://7prjcm7ainy"
+path="res://.godot/imported/imperium.png-b123d3efe4fc0452a13ba5fbcf145089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cards/marbles/marble_siphon.png"
-dest_files=["res://.godot/imported/marble_siphon.png-960c154f65d1cd4b9369cc39458c3d4b.ctex"]
+source_file="res://assets/sprites/marbles/imperium.png"
+dest_files=["res://.godot/imported/imperium.png-b123d3efe4fc0452a13ba5fbcf145089.ctex"]
 
 [params]
 

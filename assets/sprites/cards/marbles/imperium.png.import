@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6g35xp0uto11"
-path="res://.godot/imported/cat_s_eye.png-16333088e8bd0636f114a79b5946addb.ctex"
+uid="uid://cgtg2aknwb6e8"
+path="res://.godot/imported/imperium.png-84680a8be0bacf3d85d70be7f55fe059.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cards/marbles/cat_s_eye.png"
-dest_files=["res://.godot/imported/cat_s_eye.png-16333088e8bd0636f114a79b5946addb.ctex"]
+source_file="res://assets/sprites/cards/marbles/imperium.png"
+dest_files=["res://.godot/imported/imperium.png-84680a8be0bacf3d85d70be7f55fe059.ctex"]
 
 [params]
 

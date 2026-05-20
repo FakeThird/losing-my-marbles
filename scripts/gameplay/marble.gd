@@ -9,8 +9,20 @@ var owner_player_id: int = 0
 
 const SPRITE_TARGET_DIAMETER: float = RADIUS * 2.0
 
-var _sprite: Sprite2D = null
+var _sprite: AnimatedSprite2D = null
 
+func _process(delta: float) -> void:
+	if not _sprite or not _sprite.sprite_frames:
+		return
+	var speed = linear_velocity.length()
+	if speed > 5.0:
+		# scale animation speed with velocity, adjust 0.02 to taste
+		_sprite.speed_scale = speed * 0.02
+		if not _sprite.is_playing():
+			_sprite.play("roll")
+	else:
+		# pause on current frame instead of resetting
+		_sprite.pause()
 
 static func make_circle_texture(color: Color) -> ImageTexture:
 	var size := int(RADIUS * 2 + 4)
@@ -56,16 +68,39 @@ func setup(data: MarbleData, player_id: int) -> void:
 				tex_is_asset = true
 	if not tex:
 		tex = make_circle_texture(MARBLE_COLOR)
+		
 	if not _sprite:
-		_sprite = get_node("%Sprite") as Sprite2D
-	_sprite.texture = tex
+		_sprite = get_node("%Sprite") as AnimatedSprite2D
+	
+	# Force nearest neighbor filtering on the node
 	_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	
+	# Set texture on the sprite frames
+	var sprite_frames := SpriteFrames.new()
+	sprite_frames.add_animation("roll")
+	sprite_frames.set_animation_loop("roll", true)
+	
+	# Calculate frame size
+	var frame_width := tex.get_width() / 4.0
+	var frame_height := tex.get_height()
+	
+	for i in 4:
+		var frame_tex := AtlasTexture.new()
+		frame_tex.atlas = tex
+		frame_tex.region = Rect2(i * frame_width, 0, frame_width, frame_height)
+		sprite_frames.add_frame("roll", frame_tex)
+	
+	_sprite.sprite_frames = sprite_frames
+	_sprite.play("roll")
+	
+	# --- FIXING SIZE OVERWRITE LOGIC HERE ---
 	if tex_is_asset:
-		_sprite.scale = Vector2(SPRITE_TARGET_DIAMETER / tex.get_width(), SPRITE_TARGET_DIAMETER / tex.get_height())
+		# Scale based on the size of a single frame, not the whole spritesheet width!
+		_sprite.scale = Vector2(SPRITE_TARGET_DIAMETER / frame_width, SPRITE_TARGET_DIAMETER / frame_height)
 	else:
 		_sprite.scale = Vector2.ONE
 		
-	# --- ADDED: Collision Sound Configuration ---
+	# --- Collision Sound Configuration ---
 	contact_monitor = true
 	max_contacts_reported = 4
 	if not body_entered.is_connected(_on_body_entered):

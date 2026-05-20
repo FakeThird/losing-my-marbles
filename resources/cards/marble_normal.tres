@@ -10,6 +10,6 @@ script = ExtResource("2_phys")
 [resource]
 script = ExtResource("1_marble")
 physics = SubResource("phys_1")
-card_name = "Cat's Eye"
+card_name = "Marble"
 type = 0
 description = "A classic cat's eye marble. Balanced stats for all situations."

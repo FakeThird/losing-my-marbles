@@ -1,16 +1,8 @@
-[gd_resource type="Resource" script_class="MarbleData" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="MarbleData" format=3 uid="uid://7rk053583db6"]
 
-[ext_resource type="Script" path="res://scripts/resources/marble_data.gd" id="1_marble"]
-[ext_resource type="Script" path="res://scripts/resources/physics_object_data.gd" id="2_phys"]
-[ext_resource type="Script" path="res://scripts/resources/effect_data.gd" id="3_efx"]
-
-[sub_resource type="Resource" id="phys_1"]
-script = ExtResource("2_phys")
-friction = 1.3
-stickiness = 0.0
-gravity_modifier = 1.0
-elasticity = 0.25
-weight = 1.8
+[ext_resource type="Script" uid="uid://wwb44rr7uh6p" path="res://scripts/resources/marble_data.gd" id="1_marble"]
+[ext_resource type="Script" uid="uid://c2yafg2s6fr5s" path="res://scripts/resources/physics_object_data.gd" id="2_phys"]
+[ext_resource type="Script" uid="uid://drqtpejtd1n38" path="res://scripts/resources/effect_data.gd" id="3_efx"]
 
 [sub_resource type="Resource" id="efx_1"]
 script = ExtResource("3_efx")
@@ -19,11 +11,17 @@ value = 2.0
 target = 3
 trigger = 1
 
+[sub_resource type="Resource" id="phys_1"]
+script = ExtResource("2_phys")
+friction = 1.3
+elasticity = 0.25
+weight = 1.8
+
 [resource]
 script = ExtResource("1_marble")
+physics = SubResource("phys_1")
 card_name = "Dragon Ball"
 type = 0
 mana_cost = 1
-effects = Array[ExtResource("3_efx")]([SubResource("efx_1")])
 description = "A glowing Dragon Ball. When knocked out, restores 2 mana to the shooter."
-physics = SubResource("phys_1")
+effects = Array[ExtResource("3_efx")]([SubResource("efx_1")])

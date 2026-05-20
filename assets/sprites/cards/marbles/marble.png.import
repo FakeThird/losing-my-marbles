@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfbs33cr4plkm"
-path="res://.godot/imported/marble_siphon.png-5eda2ece7bf85ebb959a00202c1a9960.ctex"
+uid="uid://t13abok525xk"
+path="res://.godot/imported/marble.png-f9ea5e2e94f8d20fe2e9a2477b297acb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/marbles/marble_siphon.png"
-dest_files=["res://.godot/imported/marble_siphon.png-5eda2ece7bf85ebb959a00202c1a9960.ctex"]
+source_file="res://assets/sprites/cards/marbles/marble.png"
+dest_files=["res://.godot/imported/marble.png-f9ea5e2e94f8d20fe2e9a2477b297acb.ctex"]
 
 [params]
 
