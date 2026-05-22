@@ -123,7 +123,7 @@ Sprites not credited were custom-built by the creators and are free for personal
 
 # Getting Started: Players
 To properly try and experience **`losing-my-marbles`**, follow these steps:
-1. Download the exe file in the [releases section]() of the repository.
+1. Download the exe file in the [releases section](https://github.com/FakeSquiffy-Games/losing-my-marbles/releases) of the repository.
 2. Run the exe and enjoy the game!
 
 # License
